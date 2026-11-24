@@ -17,7 +17,7 @@ final class LegacyReportController extends AbstractController
         $entries = [
             ['title' => 'Inception', 'tag' => 'imax', 'ratings' => [5, 4, 5]],
             ['title' => 'Parasite', 'tag' => 'vo', 'ratings' => [5, null, 4]],
-            ['title' => "Anatomie d'une chute", 'tag' => null, 'ratings' => []],
+            ['title' => "Anatomie d'une chute", 'tag' => null , 'ratings' => []],
         ];
 
         $report = [];

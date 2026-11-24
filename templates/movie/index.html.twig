@@ -8,6 +8,7 @@
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
 
+
 <div class="example-wrapper">
     {# <h1>Hello {{ controller_name }}! ✅</h1> #}
 
@@ -31,12 +32,11 @@
             <section class="card" style="max-width: 320px">
             <div class="col">
             <div class="card-body">
-                <h4 class="card-title">{{ movie.Titre }}</h4>
+                <h4 class="card-title"><a href="{{ path('app_movie_show', {'id': movie.id}) }}">{{ movie.Titre }}</a></h4>
                 <p class="card-text">{{ movie.synopsis }}</p>
                 <p class="card-text">Année : {{ movie.dateSortie ? movie.dateSortie|date('d/m/Y') : 'Inconnue' }}</p>
                 <p class="card-text">Catégorie : {{ movie.category.nom }}</p>
                 <p class="card-text">Note : {{ movie.note }} {% if movie.note >= 4.5 %} Coup de coeur {% endif %}</p>
-                {# <a href="{{ path('app_movie_show', {'id': movie.id}) }}" class="btn-solid theme-primary">Go somewhere</a> #}
             </div>
             </div>
             </section>

@@ -8,11 +8,16 @@
 
     <div class="card" style="max-width: 320px">
         <div class="card-body">
-            <h4 class="card-title">{{ movie.title }}</h4>
+            <h4 class="card-title">{{ movie.Titre }}</h4>
             <p class="card-text">{{ movie.synopsis }}</p>
-            <p class="card-text">Année : {{ movie.year }}</p>
-            <p class="card-text">Catégorie : {{ movie.category }}</p>
-            <p class="card-text">Note : {{ movie.rating }} {% if movie.rating >= 4.5 %} Coup de coeur {% endif %}</p>
+            <p class="card-text">Année : {{ movie.dateSortie ? movie.dateSortie|date('d/m/Y') : 'Inconnue' }}</p>
+            <p class="card-text">Catégorie : {{ movie.category.nom }}</p>
+            <p class="card-text">Note : {{ movie.note }} {% if movie.note >= 4.5 %} Coup de coeur {% endif %}</p>
+            <a href="{{ path('app_movie_edit', {'id': movie.id}) }}" class="btn-solid theme-primary">Modifier</a>
+            <form method="post" action="{{ path('app_movie_delete', {'id': movie.id}) }}">
+                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ movie.id) }}">
+                <button class="btn btn-danger">Supprimer</button>
+            </form>
         </div>
     </div>
 

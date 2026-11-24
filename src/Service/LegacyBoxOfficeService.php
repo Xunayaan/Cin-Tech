@@ -8,7 +8,7 @@ final class LegacyBoxOfficeService
 {
     public function formatBadge(array $entry): string
     {
-        return '[' . strtoupper($entry['tag']) . '] ' . $entry['title'];
+        return '[' . strtoupper($entry['tag']) ?? 'Inconnue'. '] ' . $entry['title'];
     }
 
     /**
@@ -16,7 +16,7 @@ final class LegacyBoxOfficeService
      */
     public function calculateAverageRating(array $ratings): float
     {
-        $average = array_sum($ratings) / count($ratings);
+        $average = array_sum($ratings) / count($ratings) ;
 
         return round($average, 1);
     }
